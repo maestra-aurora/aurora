@@ -248,15 +248,16 @@ a {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 28px;
+    gap: 22px;
 }
 
 .nav-menu a {
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     font-weight: 500;
     color: var(--text-light);
     position: relative;
     padding: 4px 0;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -1743,7 +1744,39 @@ a {
 /* =========================================================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================= */
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
+    .nav-menu {
+        gap: 14px;
+    }
+    .nav-menu a {
+        font-size: 0.86rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(14, 12, 31, 0.98);
+        flex-direction: column;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: var(--glass-border);
+        display: none;
+        backdrop-filter: blur(20px);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        animation: fadeInSlide 0.3s ease forwards;
+    }
+
     .hero-grid,
     .master-grid {
         grid-template-columns: 1fr;
@@ -1782,29 +1815,6 @@ a {
         flex-direction: column;
         align-items: center;
         width: 100%;
-    }
-
-    .mobile-toggle {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(14, 12, 31, 0.98);
-        flex-direction: column;
-        padding: 24px;
-        gap: 18px;
-        border-bottom: var(--glass-border);
-        display: none;
-        backdrop-filter: blur(20px);
-    }
-
-    .nav-menu.active {
-        display: flex;
-        animation: fadeInSlide 0.3s ease forwards;
     }
 
     .services-grid {
