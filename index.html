@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestra Aurora | Santuario de Alta Magia & Rituales Sagrados</title>
+    <meta name="description"
+        content="Templo sagrado de alta magia ancestral con la Maestra Aurora. Amarres de amor eternos, retorno del ser amado, apertura de caminos, limpiezas áuricas y videncia pura. Consulta confidencial 24/7 por WhatsApp.">
+    <meta name="keywords"
+        content="amarres de amor, retorno de pareja, limpiezas espirituales, videncia, tarot, alta magia, protecciones, samayac, maestra aurora">
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Maestra Aurora | Santuario de Alta Magia & Rituales Sagrados">
+    <meta property="og:description"
+        content="Recupera el amor, vence los bloqueos y protege tu destino con rituales ancestrales de alta eficacia y la guía de la Maestra Aurora.">
+    <meta property="og:image" content="img/altar.jpg">
+    <meta name="theme-color" content="#07060f">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qS/l+A68vL78lM1O5o4Q4I7c3U4D5yQ5V4A1b/c4u5T0z0I2z6T5a8I0w6r4jQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Estilos Principales -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Canvas de Partículas y Constelaciones -->
+    <canvas id="mystic-canvas"></canvas>
+
+    <!-- Barra de Urgencia Superior -->
+    <aside class="urgency-top-bar" aria-label="Aviso de disponibilidad">
+        <div class="container urgency-content">
+            <span class="urgency-text"><span class="pulse-dot"></span>Portal Astral Abierto: Solo quedan <strong
+                    id="cupos-count">3 cupos</strong> para consultas y rituales directos hoy.</span>
+            <a href="#contacto" class="urgency-link whatsapp-link">Apartar Mi Consulta <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
+    </aside>
+
+    <!-- Barra de Navegación Sticky -->
+    <header>
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="container nav-container">
+                <a href="#inicio" class="nav-logo" aria-label="Ir al inicio">
+                    <img src="img/logo.jpg" alt="Emblema Sagrado" class="logo-symbol"
+                        style="object-fit: cover; padding: 0;">
+                    <div class="logo-info">
+                        <span class="logo-title dyn-master-name">Maestra Aurora</span>
+                        <span class="logo-badge">Alta Magia Ancestral</span>
+                    </div>
+                </a>
+
+                <button class="mobile-toggle" aria-label="Abrir menú de navegación" id="mobile-toggle-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#oraculo">Oráculo Tarot</a></li>
+                    <li><a href="#diagnostico">Diagnóstico</a></li>
+                    <li><a href="#servicios">Rituales Sagrados</a></li>
+                    <li><a href="#maestro">El Santuario</a></li>
+                    <li><a href="#testimonios">Casos Reales</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li>
+                        <a href="#contacto" class="btn-gold whatsapp-link"
+                            style="padding: 8px 18px; font-size: 0.88rem;">
+                            <i class="fab fa-whatsapp"></i> Consultar Ahora
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <!-- SECCIÓN 1: HERO IMPACTANTE -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-text-col">
+                    <div class="hero-kicker">
+                        <i class="fas fa-star-of-david"></i>
+                        <span>Poder Sagrado de Samayac & Alta Videncia</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Recupera el Amor, <br>
+                        <span class="text-gold">Destraba tu Fortuna</span> <br>
+                        y Domina tu Destino
+                    </h1>
+
+                    <p class="hero-description">
+                        No sufras más en silencio ni permitas que la incertidumbre o terceras personas destruyan tu
+                        felicidad.
+                        A través de secretos ancestrales y rituales de consagración pura, disuelvo todo obstáculo y
+                        pongo a tus pies
+                        la victoria en el amor, el dinero y la salud espiritual.
+                    </p>
+
+                    <div class="hero-chips-wrap">
+                        <div class="hero-chip">
+                            <i class="fas fa-certificate"></i>
+                            <span class="dyn-master-exp">+25 años de experiencia</span>
+                        </div>
+                        <div class="hero-chip">
+                            <i class="fas fa-user-shield"></i>
+                            <span>100% Confidencial y Discreto</span>
+                        </div>
+                        <div class="hero-chip">
+                            <i class="fas fa-leaf"></i>
+                            <span>Sin Daño ni Karma Negativo</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-box">
+                        <a href="#contacto" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Consultar Ahora</span>
+                        </a>
+                        <div class="hero-guarantee-note">
+                            <i class="fas fa-circle-check"></i>
+                            <span>Atención personalizada inmediata • Diagnóstico espiritual inicial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual-frame">
+                    <div class="hero-altar-container">
+                        <img src="img/altar.jpg" alt="Altar de Alta Magia y Consagración Sagrada"
+                            class="hero-altar-img">
+                        <div class="altar-badge-float">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span style="font-size: 0.88rem; font-weight: 700; color: #fff;">1,480+ Casos
+                                Resueltos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: ORÁCULO DE TAROT INTERACTIVO 3D -->
+        <section id="oraculo" class="oracle-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Revelación Inmediata</span>
+                    <h2 class="section-title">Oráculo Sagrado de <span class="text-gold">3 Cartas</span></h2>
+                    <p class="section-lead">
+                        Concentra tu mente en tu mayor deseo o en la persona que amas.
+                        Toca y voltea las 3 cartas sagradas para revelar la energía oculta que rige tu vida hoy.
+                    </p>
+                </div>
+
+                <!-- Grid de Cartas 3D -->
+                <div class="oracle-cards-grid" id="oracle-cards-container">
+                    <!-- Generado dinámicamente por js/oracle.js -->
+                </div>
+
+                <!-- Resultado del Oráculo -->
+                <div class="oracle-result-box" id="oracle-result-box">
+                    <span class="section-kicker" style="margin-bottom: 12px;">Lectura Mística Completada</span>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Cartas Reveladas: <span class="text-gold"
+                            id="oracle-cards-drawn"></span></h3>
+                    <p id="oracle-summary-text"
+                        style="font-size: 1.05rem; line-height: 1.7; max-width: 720px; margin: 0 auto 20px;"></p>
+
+                    <div class="oracle-actions">
+                        <a href="#" id="oracle-cta-whatsapp" target="_blank" rel="noopener noreferrer"
+                            class="btn-whatsapp-cta whatsapp-pulse">
+                            <i class="fab fa-whatsapp"></i> <span>Consultar mi Tirada</span>
+                        </a>
+                        <button type="button" id="oracle-shuffle-btn" class="btn-shuffle">
+                            <i class="fas fa-rotate"></i> Barajar de Nuevo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: DIAGNÓSTICO ENERGÉTICO RÁPIDO (QUIZ) -->
+        <section id="diagnostico" class="diagnosis-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Evaluación Áurica</span>
+                    <h2 class="section-title">Diagnóstico Energético <span class="text-gold">Gratuito</span></h2>
+                    <p class="section-lead">
+                        Identifica si estás bajo un bloqueo amoroso, económico o una carga de envidia espiritual
+                        respondiendo 3 sencillas preguntas.
+                    </p>
+                </div>
+
+                <div class="diagnosis-card">
+                    <div class="diag-progress-bar">
+                        <div class="diag-progress-fill" id="diag-progress-fill"></div>
+                    </div>
+
+                    <!-- Paso 1 -->
+                    <div class="diag-step active" id="diag-step-1">
+                        <h3 class="diag-question">1. ¿En qué área de tu vida sientes mayor bloqueo o angustia?</h3>
+                        <div class="diag-options-grid">
+                            <button type="button" class="diag-opt-btn diag-opt-1"
+                                data-val="Amor y Pareja (Distanciamiento / Frialdad)">
+                                <i class="fas fa-heart-crack"></i>
+                                <span>Amor y Pareja (Frialdad o Ruptura)</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-1"
+                                data-val="Dinero y Negocios (Estancamiento / Pérdidas)">
+                                <i class="fas fa-coins"></i>
+                                <span>Dinero, Deudas y Negocios Trancados</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-1"
+                                data-val="Envidia y Brujería (Pesadez / Daño Oculto)">
+                                <i class="fas fa-shield-virus"></i>
+                                <span>Pesadez, Mal de Ojo o Envidias</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-1"
+                                data-val="Incertidumbre General (Dudas sobre el Futuro)">
+                                <i class="fas fa-compass"></i>
+                                <span>Incertidumbre y Falta de Rumbo</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 2 -->
+                    <div class="diag-step" id="diag-step-2">
+                        <h3 class="diag-question">2. ¿Qué síntoma se manifiesta con mayor frecuencia?</h3>
+                        <div class="diag-options-grid">
+                            <button type="button" class="diag-opt-btn diag-opt-2"
+                                data-val="Orgullo excesivo y rechazo repentino">
+                                <i class="fas fa-person-walking-arrow-right"></i>
+                                <span>La persona amada se alejó de repente</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-2"
+                                data-val="El dinero entra pero se esfuma de inmediato">
+                                <i class="fas fa-wallet"></i>
+                                <span>El dinero no rinde y todo fracasa</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-2"
+                                data-val="Insomnio, pesadillas y sensación de presencia">
+                                <i class="fas fa-bed"></i>
+                                <span>Pesadillas, insomnio y angustia nocturna</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-2"
+                                data-val="Terceras personas interfiriendo y mintiendo">
+                                <i class="fas fa-user-xmark"></i>
+                                <span>Amantes o rivales entrometiéndose</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Paso 3 -->
+                    <div class="diag-step" id="diag-step-3">
+                        <h3 class="diag-question">3. ¿Cuánto tiempo llevas experimentando esta situación?</h3>
+                        <div class="diag-options-grid">
+                            <button type="button" class="diag-opt-btn diag-opt-3"
+                                data-val="Menos de 1 mes (Etapa inicial)">
+                                <i class="fas fa-hourglass-start"></i>
+                                <span>Menos de 1 mes (Muy reciente)</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-3"
+                                data-val="Entre 1 y 6 meses (Etapa consolidada)">
+                                <i class="fas fa-hourglass-half"></i>
+                                <span>Entre 1 y 6 meses (Empeorando)</span>
+                            </button>
+                            <button type="button" class="diag-opt-btn diag-opt-3"
+                                data-val="Más de 6 meses o varios años (Etapa crítica)">
+                                <i class="fas fa-hourglass-end"></i>
+                                <span>Más de 6 meses (Bloqueo crónico)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resultado Diagnóstico -->
+                    <div class="diag-result" id="diag-result">
+                        <div class="diag-meter-box">
+                            <i class="fas fa-triangle-exclamation diag-meter-icon"></i>
+                            <span class="diag-score-val" id="diag-score-val">88%</span>
+                            <span class="diag-meter-label">Bloqueo Áurico</span>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #fff;">Diagnóstico Espiritual: <span
+                                class="text-gold">Bloqueo Activo Detectado</span></h3>
+                        <p id="diag-advice-text" style="max-width: 660px; margin: 0 auto 26px; line-height: 1.7;"></p>
+
+                        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                            <a href="#" id="diag-cta-whatsapp" target="_blank" rel="noopener noreferrer"
+                                class="btn-whatsapp-cta whatsapp-pulse">
+                                <i class="fab fa-whatsapp"></i> <span>Consultar mi Diagnóstico</span>
+                            </a>
+                            <button type="button" id="diag-reset-btn" class="btn-shuffle">
+                                <i class="fas fa-arrow-rotate-left"></i> Repetir Test
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: CATÁLOGO DE RITUALES SAGRADOS FILTRABLES -->
+        <section id="servicios" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Secretos & Consagración</span>
+                    <h2 class="section-title">Rituales & Trabajos de <span class="text-gold">Alta Magia</span></h2>
+                    <p class="section-lead">
+                        Cada situación requiere una llave sagrada específica. Selecciona tu necesidad y descubre la
+                        solución mística diseñada para tu alma.
+                    </p>
+                </div>
+
+                <!-- Barra de Filtros -->
+                <div class="services-filter-nav">
+                    <button type="button" class="filter-btn active" data-filter="all">Todos los Rituales</button>
+                    <button type="button" class="filter-btn" data-filter="amor">Amor & Amarres</button>
+                    <button type="button" class="filter-btn" data-filter="fortuna">Fortuna & Azar</button>
+                    <button type="button" class="filter-btn" data-filter="limpieza">Limpieza & Destrabe</button>
+                    <button type="button" class="filter-btn" data-filter="proteccion">Protección & Blindaje</button>
+                    <button type="button" class="filter-btn" data-filter="videncia">Videncia & Tarot</button>
+                    <button type="button" class="filter-btn" data-filter="ancestral">Magia Ancestral</button>
+                </div>
+
+                <!-- Grid de Servicios Dinámicos -->
+                <div class="services-grid" id="services-grid">
+                    <!-- Generado dinámicamente por js/main.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: SOBRE LA MAESTRA & PODER ANCESTRAL -->
+        <section id="maestro" class="master-section">
+            <div class="container master-grid">
+                <div class="master-portrait-box">
+                    <div class="master-portrait-frame">
+                        <img src="img/magia-dual.jpg" alt="Poder Sagrado de la Magia Ancestral"
+                            class="master-portrait-img">
+                    </div>
+                    <div class="master-experience-badge">
+                        <span class="exp-number dyn-master-exp">+25</span>
+                        <span class="exp-label">Años de Linaje</span>
+                    </div>
+                </div>
+
+                <div class="master-content-col">
+                    <span class="section-kicker">Custodia de la Sabiduría</span>
+                    <h2 class="section-title">
+                        Tradición Sagrada de <br>
+                        <span class="text-gold">Samayac & Alta Sabiduría</span>
+                    </h2>
+                    <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 18px;">
+                        Mi misión es servir de puente entre el plano terrenal y las fuerzas espirituales superiores para
+                        auxiliar
+                        a quienes atraviesan pruebas dolorosas de desamor, ruina económica o persecución espiritual.
+                    </p>
+                    <p style="font-size: 0.95rem; line-height: 1.7;">
+                        No existen casos imposibles cuando se trabaja con el conocimiento exacto de las horas astrales,
+                        las velaciones sagradas y los sellos de protección milenarios.
+                    </p>
+
+                    <div class="master-pillars-grid">
+                        <div class="pillar-card">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <h4>Magia Blanca y Roja Ética</h4>
+                            <p>Canalizamos el flujo universal sin recurrir a bajas vibraciones que dañen tu salud o la
+                                de tus hijos.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <i class="fas fa-lock"></i>
+                            <h4>Juramento de Silencio</h4>
+                            <p>Garantía de sigilo total. Ningún detalle de tu identidad o de tu consulta saldrá a la luz
+                                pública.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <i class="fas fa-earth-americas"></i>
+                            <h4>Consultas Internacionales</h4>
+                            <p>Eficacia comprobada tanto de forma presencial en templos como a distancia por
+                                videollamada y WhatsApp.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <i class="fas fa-gem"></i>
+                            <h4>Seguimiento Continuo</h4>
+                            <p>No te dejamos a solas; te acompañamos día a día hasta que veas manifestado el resultado
+                                deseado.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px;">
+                        <a href="#contacto" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse">
+                            <i class="fab fa-whatsapp"></i> <span>Hablar con la Maestra</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: TESTIMONIOS, PRUEBAS REALES Y NOTAS DE VOZ -->
+        <section id="testimonios" class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Evidencia Irrefutable</span>
+                    <h2 class="section-title">Casos de Éxito & <span class="text-gold">Agradecimientos Reales</span>
+                    </h2>
+                    <p class="section-lead">
+                        Personas que creían tener sus vidas arruinadas y hoy disfrutan de la plenitud en el amor y la
+                        prosperidad económica.
+                    </p>
+                </div>
+
+                <!-- Galería de Capturas de WhatsApp -->
+                <div class="testimonials-grid">
+                    <div class="testimonio-card">
+                        <img src="img/testimonio-1.jpg" alt="Agradecimiento por retorno de pareja"
+                            class="testimonio-img">
+                        <div class="zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Ver prueba</div>
+                    </div>
+                    <div class="testimonio-card">
+                        <img src="img/testimonio-2.jpg" alt="Testimonio de destrabe de dinero" class="testimonio-img">
+                        <div class="zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Ver prueba</div>
+                    </div>
+                    <div class="testimonio-card">
+                        <img src="img/testimonio-3.jpg" alt="Agradecimiento por limpieza espiritual"
+                            class="testimonio-img">
+                        <div class="zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Ver prueba</div>
+                    </div>
+                    <div class="testimonio-card">
+                        <img src="img/testimonio-4.jpg" alt="Testimonio de amarre cumplido" class="testimonio-img">
+                        <div class="zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Ver prueba</div>
+                    </div>
+                </div>
+
+                <!-- Reproductor Simulado de Notas de Voz -->
+                <h3 style="text-align: center; margin-bottom: 24px; font-size: 1.3rem;">
+                    <i class="fab fa-whatsapp" style="color: #25d366;"></i> Mensajes de Voz de Consultantes Agradecidos
+                </h3>
+
+                <div class="audio-notes-container">
+                    <div class="audio-note-card"
+                        data-gender="female"
+                        data-speech="Hola Maestra Aurora, buenas tardes. Le envío este mensaje desde Los Ángeles para agradecerle de todo corazón. Mi esposo regresó anoche arrepentido pidiéndome perdón como usted me prometió. Su ritual fue realmente sagrado y efectivo.">
+                        <button type="button" class="audio-play-btn" aria-label="Reproducir testimonio de voz de Patricia">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="audio-info">
+                            <div class="audio-meta">
+                                <span>Patricia G. (Los Angeles, CA)</span>
+                                <span>Amarre & Retorno</span>
+                            </div>
+                            <div class="audio-track">
+                                <div class="audio-progress-bar"></div>
+                            </div>
+                            <div class="audio-time">0:14</div>
+                        </div>
+                    </div>
+
+                    <div class="audio-note-card"
+                        data-gender="male"
+                        data-speech="Buenas tardes Maestra Aurora, le hablo desde Houston Texas. Quería contarle que desde el ritual de apertura, el negocio se llenó de clientes y pude pagar todas mis deudas. Eternamente agradecido con su gran ayuda y bendiciones.">
+                        <button type="button" class="audio-play-btn" aria-label="Reproducir testimonio de voz de Gonzalo">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="audio-info">
+                            <div class="audio-meta">
+                                <span>Gonzalo M. (Houston, TX)</span>
+                                <span>Apertura de Fortuna</span>
+                            </div>
+                            <div class="audio-track">
+                                <div class="audio-progress-bar"></div>
+                            </div>
+                            <div class="audio-time">0:15</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 36px;">
+                    <a href="#contacto" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse" data-wa-msg="Hola Maestra Aurora, vi los testimonios de casos resueltos y deseo apartar mi consulta para mi situación.">
+                        <i class="fab fa-whatsapp"></i> <span>Consultar mi Caso Ahora</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">Claridad & Confianza</span>
+                    <h2 class="section-title">Preguntas <span class="text-gold">Frecuentes</span></h2>
+                    <p class="section-lead">
+                        Resolvemos tus dudas principales para que des el paso con absoluta tranquilidad y fe.
+                    </p>
+                </div>
+
+                <div class="faq-accordion" id="faq-accordion">
+                    <!-- Generado dinámicamente por js/main.js -->
+                </div>
+
+                <div style="text-align: center; margin-top: 36px;">
+                    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">¿Tienes una duda o situación específica que no aparece aquí?</p>
+                    <a href="#contacto" class="btn-gold whatsapp-link" data-wa-msg="Hola Maestra Aurora, tengo una pregunta especial sobre mi caso espiritual.">
+                        <i class="fab fa-whatsapp"></i> <span>Preguntar a la Maestra</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: LLAMADO A LA ACCIÓN FINAL -->
+        <section id="contacto" class="final-cta-section">
+            <div class="container">
+                <div class="final-cta-card">
+                    <span class="section-kicker">Tu Momento es Ahora</span>
+                    <h2 class="final-title">¿Listo/a para Cambiar tu Destino y <br><span class="text-gold">Tener la Vida
+                            que Mereces?</span></h2>
+                    <p class="final-lead">
+                        No permitas que pase un solo día más con angustia o dolor. Escríbeme directamente por WhatsApp.
+                        La consulta es rápida, directa y totalmente discreta.
+                    </p>
+
+                    <a href="#" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Consultar Ahora con la Maestra</span>
+                    </a>
+
+                    <div class="trust-badges-bar">
+                        <div class="trust-badge-item">
+                            <i class="fas fa-shield-halved"></i>
+                            <span>100% Confidencial</span>
+                        </div>
+                        <div class="trust-badge-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Respuesta Rápida 24/7</span>
+                        </div>
+                        <div class="trust-badge-item">
+                            <i class="fas fa-user-check"></i>
+                            <span>Exclusivo Mayores de 18 Años</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div>
+                <p>© <span id="year"></span> <strong class="dyn-master-name">Gran Maestro Ancestral</strong>. Todos los
+                    derechos reservados.</p>
+                <p style="font-size: 0.78rem; margin-top: 4px; color: #7f7b99;">
+                    Aviso Legal: Los rituales y consultas se ofrecen con fines de orientación espiritual y superación
+                    personal. Los resultados pueden variar según la fe y situación individual.
+                </p>
+            </div>
+            <div class="age-warning">
+                <i class="fas fa-triangle-exclamation"></i> Servicio exclusivo para mayores de edad (+18)
+            </div>
+        </div>
+    </footer>
+
+    <!-- Widget Flotante de WhatsApp -->
+    <aside class="floating-whatsapp-wrap" aria-label="Contacto flotante de WhatsApp">
+        <div class="wp-quick-menu" id="wp-quick-menu">
+            <div class="wp-menu-title">Elige tu Consulta Rápida</div>
+            <a href="#" class="wp-menu-item whatsapp-link">
+                <i class="fas fa-heart text-purple"></i> Amarre o Retorno de Pareja
+            </a>
+            <a href="#" class="wp-menu-item whatsapp-link">
+                <i class="fas fa-coins text-gold"></i> Fortuna, Azar & Negocios
+            </a>
+            <a href="#" class="wp-menu-item whatsapp-link">
+                <i class="fas fa-sparkles" style="color: #10b981;"></i> Limpieza & Destrabe
+            </a>
+            <a href="#" class="wp-menu-item whatsapp-link">
+                <i class="fas fa-eye text-gold"></i> Lectura de Cartas & Videncia
+            </a>
+            <a href="#" class="wp-menu-item whatsapp-link"
+                style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px;">
+                <i class="fab fa-whatsapp" style="color: #25d366;"></i> Consulta General Inmediata
+            </a>
+        </div>
+
+        <button type="button" class="floating-wp-btn whatsapp-pulse" id="wp-flotante-btn"
+            aria-label="Abrir opciones de WhatsApp">
+            <span class="wp-badge-age">+18</span>
+            <img src="img/icono-whatsapp.webp" alt="WhatsApp" class="floating-wp-icon" width="40" height="40">
+        </button>
+    </aside>
+
+    <!-- Notificación Toast de Prueba Social en Vivo -->
+    <div class="social-proof-toast" id="social-proof-toast" role="status" aria-live="polite">
+        <!-- Rellenado dinámicamente por js/main.js -->
+    </div>
+
+    <!-- Modal Lightbox para Capturas de Testimonios -->
+    <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true"
+        aria-label="Visor de imagen de testimonio">
+        <div class="lightbox-content">
+            <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Cerrar visor">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Captura ampliada de testimonio" id="lightbox-img" class="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/oracle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
