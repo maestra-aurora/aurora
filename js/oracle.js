@@ -61,22 +61,37 @@ function initOracle() {
                         <div class="oracle-card-face card-back">
                             <span class="card-back-prompt"><i class="fas fa-hand-sparkles"></i> Toca para Revelar</span>
                         </div>
-                        <!-- Lado Delantero (Revelado: Carta Consagrada) -->
+                        <!-- Lado Delantero (Revelado: Carta de Tarot Consagrada) -->
                         <div class="oracle-card-face card-front">
                             <div class="tarot-inner-frame">
+                                <span class="tarot-corner corner-tl">❖</span>
+                                <span class="tarot-corner corner-tr">❖</span>
+                                <span class="tarot-corner corner-bl">❖</span>
+                                <span class="tarot-corner corner-br">❖</span>
+
                                 <div class="tarot-card-header">
                                     <span class="tarot-num">${roman}</span>
                                     <span class="card-badge">${cardData.category}</span>
                                     <span class="tarot-num">${roman}</span>
                                 </div>
-                                <div class="card-icon-wrap">
-                                    <i class="${cardData.icon}"></i>
-                                </div>
+
                                 <h4 class="card-title">${cardData.name}</h4>
-                                <div class="tarot-card-divider">✦</div>
+
+                                <!-- Ilustración / Grabado Central con Medallón Dorado y Geometría Sagrada -->
+                                <div class="tarot-illustration-box">
+                                    <div class="tarot-sacred-halo"></div>
+                                    <div class="tarot-art-medallion">
+                                        <i class="${cardData.icon}"></i>
+                                    </div>
+                                    <div class="tarot-astral-stars">✦ ✧ ✦</div>
+                                </div>
+
                                 <p class="card-meaning">${cardData.meaning}</p>
-                                <div class="card-ritual-tag">
-                                    <i class="fas fa-wand-magic-sparkles"></i> ${cardData.recommendation}
+
+                                <!-- Etiqueta/Botón de Ritual Recomendado de Alto Contraste -->
+                                <div class="card-ritual-cta">
+                                    <span class="ritual-tag-label"><i class="fas fa-wand-magic-sparkles"></i> Ritual Recomendado:</span>
+                                    <span class="ritual-tag-name">${cardData.recommendation}</span>
                                 </div>
                             </div>
                         </div>
