@@ -366,12 +366,20 @@ function initTestimonialLightbox() {
 }
 
 /* -------------------------------------------------------------------------
-   9. REPRODUCTOR DE NOTA DE VOZ CON AUDIO LATINO REAL (SPEECH & WEB AUDIO)
+   9. REPRODUCTOR DE NOTAS DE VOZ CON ARCHIVOS DE AUDIO REALES (MP3 & WHATSAPP CHIME)
    ------------------------------------------------------------------------- */
 function initAudioSimulator() {
-    const playBtns = document.querySelectorAll('.audio-play-btn');
-    let activeBtn = null;
-    let activeInterval = null;
+    const cards = document.querySelectorAll('.audio-note-card');
+    let currentAudio = null;
+    let currentActiveBtn = null;
+    let currentActiveCard = null;
+
+    function formatTime(seconds) {
+        if (isNaN(seconds) || seconds === Infinity) return '0:00';
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
 
     function playWhatsAppChime() {
         try {
@@ -393,132 +401,118 @@ function initAudioSimulator() {
     }
 
     function stopCurrentAudio() {
-        if (window.speechSynthesis) {
-            window.speechSynthesis.cancel();
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+            currentAudio = null;
         }
-        if (activeInterval) {
-            clearInterval(activeInterval);
-            activeInterval = null;
+        if (currentActiveBtn) {
+            currentActiveBtn.innerHTML = '<i class="fas fa-play"></i>';
+            currentActiveBtn.classList.remove('playing');
+            currentActiveBtn = null;
         }
-        if (activeBtn) {
-            activeBtn.innerHTML = '<i class="fas fa-play"></i>';
-            activeBtn.classList.remove('playing');
-            const card = activeBtn.closest('.audio-note-card');
-            if (card) {
-                const bar = card.querySelector('.audio-progress-bar');
-                if (bar) bar.style.width = '0%';
+        if (currentActiveCard) {
+            const bar = currentActiveCard.querySelector('.audio-progress-bar');
+            if (bar) bar.style.width = '0%';
+            currentActiveCard = null;
+        }
+    }
+
+    cards.forEach(card => {
+        const audioSrc = card.getAttribute('data-audio');
+        const playBtn = card.querySelector('.audio-play-btn');
+        const progressBar = card.querySelector('.audio-progress-bar');
+        const track = card.querySelector('.audio-track');
+        const timeDisplay = card.querySelector('.audio-time');
+
+        if (!audioSrc || !playBtn) return;
+
+        // Crear instancia de audio para obtener duración inicial
+        const audio = new Audio(audioSrc);
+        audio.preload = 'metadata';
+
+        audio.addEventListener('loadedmetadata', () => {
+            if (timeDisplay && audio.duration && !isNaN(audio.duration)) {
+                timeDisplay.textContent = formatTime(audio.duration);
             }
-            activeBtn = null;
-        }
-    }
+        });
 
-    // Cargar catálogo de voces del sistema
-    let availableVoices = [];
-    function loadVoices() {
-        if ('speechSynthesis' in window) {
-            availableVoices = window.speechSynthesis.getVoices();
-        }
-    }
-    loadVoices();
-    if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined) {
-        window.speechSynthesis.onvoiceschanged = loadVoices;
-    }
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
 
-    playBtns.forEach(btn => {
-        const card = btn.closest('.audio-note-card');
-        const progressBar = card ? card.querySelector('.audio-progress-bar') : null;
-        const timeDisplay = card ? card.querySelector('.audio-time') : null;
-        const speechText = card ? card.getAttribute('data-speech') : '';
-        const gender = card ? (card.getAttribute('data-gender') || 'female') : 'female';
-
-        btn.addEventListener('click', () => {
-            const isThisPlaying = (activeBtn === btn);
-
-            if (isThisPlaying) {
-                stopCurrentAudio();
-                return;
+            // Si este mismo audio ya está reproduciéndose
+            if (currentAudio && currentActiveCard === card) {
+                if (!currentAudio.paused) {
+                    currentAudio.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    playBtn.classList.remove('playing');
+                    return;
+                } else {
+                    currentAudio.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    playBtn.classList.add('playing');
+                    return;
+                }
             }
 
+            // Si hay otro audio activo, detenerlo
             stopCurrentAudio();
             playWhatsAppChime();
 
-            btn.innerHTML = '<i class="fas fa-pause"></i>';
-            btn.classList.add('playing');
-            activeBtn = btn;
+            // Asignar el nuevo audio activo
+            currentAudio = audio;
+            currentActiveBtn = playBtn;
+            currentActiveCard = card;
 
-            const totalDurationSec = (gender === 'male') ? 15 : 14;
-            let elapsedSec = 0;
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playBtn.classList.add('playing');
 
-            if ('speechSynthesis' in window && speechText) {
-                const utter = new SpeechSynthesisUtterance(speechText);
-                utter.lang = 'es-US';
-
-                // Calibrar tono y velocidad según género
-                if (gender === 'male') {
-                    utter.pitch = 0.76; // Tono grave y masculino
-                    utter.rate = 0.92;
-                } else {
-                    utter.pitch = 1.06; // Tono femenino claro
-                    utter.rate = 0.95;
-                }
-
-                if (availableVoices.length === 0) {
-                    availableVoices = window.speechSynthesis.getVoices();
-                }
-
-                // Filtrar voces en español con prioridad a acentos latinos
-                const latinVoices = availableVoices.filter(v => {
-                    const l = v.lang.toLowerCase();
-                    return (l.includes('es-us') || l.includes('es-mx') || l.includes('es-419') || l.includes('es-co') || l.includes('es-ar') || l.includes('es-cl') || (l.startsWith('es') && !l.includes('es-es')));
-                });
-                const allSpanishVoices = availableVoices.filter(v => v.lang.toLowerCase().startsWith('es'));
-
-                let selectedVoice = null;
-
-                if (gender === 'male') {
-                    // Buscar voz masculina específica en español
-                    selectedVoice = latinVoices.find(v => {
-                        const n = v.name.toLowerCase();
-                        return n.includes('jorge') || n.includes('raul') || n.includes('diego') || n.includes('miguel') || n.includes('david') || n.includes('pablo') || n.includes('male');
-                    }) || allSpanishVoices.find(v => {
-                        const n = v.name.toLowerCase();
-                        return n.includes('jorge') || n.includes('raul') || n.includes('diego') || n.includes('miguel') || n.includes('david') || n.includes('pablo') || n.includes('male');
-                    }) || latinVoices[1] || latinVoices[0] || allSpanishVoices[0];
-                } else {
-                    // Buscar voz femenina específica en español latino
-                    selectedVoice = latinVoices.find(v => {
-                        const n = v.name.toLowerCase();
-                        return n.includes('paulina') || n.includes('monica') || n.includes('sabina') || n.includes('dalia') || n.includes('elena') || n.includes('mia') || n.includes('lupe') || n.includes('female');
-                    }) || allSpanishVoices.find(v => {
-                        const n = v.name.toLowerCase();
-                        return n.includes('paulina') || n.includes('monica') || n.includes('sabina') || n.includes('dalia') || n.includes('elena') || n.includes('mia') || n.includes('lupe') || n.includes('female');
-                    }) || latinVoices[0] || allSpanishVoices[0];
-                }
-
-                if (selectedVoice) {
-                    utter.voice = selectedVoice;
-                }
-
-                utter.onend = () => stopCurrentAudio();
-                utter.onerror = () => stopCurrentAudio();
-
-                window.speechSynthesis.speak(utter);
-            }
-
-            // Animación de la barra de progreso
-            activeInterval = setInterval(() => {
-                elapsedSec += 0.2;
-                const progressPct = Math.min(100, (elapsedSec / totalDurationSec) * 100);
-                if (progressBar) progressBar.style.width = `${progressPct}%`;
-                if (timeDisplay) {
-                    const currentSec = Math.floor(elapsedSec);
-                    timeDisplay.textContent = `0:${currentSec < 10 ? '0' : ''}${currentSec} / 0:${totalDurationSec}`;
-                }
-                if (progressPct >= 100) {
-                    stopCurrentAudio();
-                }
-            }, 200);
+            audio.play().catch(err => {
+                console.warn('Error al reproducir audio:', err);
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                playBtn.classList.remove('playing');
+            });
         });
+
+        // Actualizar progreso
+        audio.addEventListener('timeupdate', () => {
+            if (currentAudio === audio && audio.duration) {
+                const pct = (audio.currentTime / audio.duration) * 100;
+                if (progressBar) progressBar.style.width = `${pct}%`;
+                if (timeDisplay) {
+                    timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+                }
+            }
+        });
+
+        // Al finalizar
+        audio.addEventListener('ended', () => {
+            if (currentActiveBtn) {
+                currentActiveBtn.innerHTML = '<i class="fas fa-play"></i>';
+                currentActiveBtn.classList.remove('playing');
+            }
+            if (progressBar) progressBar.style.width = '0%';
+            if (timeDisplay && audio.duration) {
+                timeDisplay.textContent = formatTime(audio.duration);
+            }
+            currentAudio = null;
+            currentActiveBtn = null;
+            currentActiveCard = null;
+        });
+
+        // Permitir click en la pista para avanzar/retroceder
+        if (track) {
+            track.style.cursor = 'pointer';
+            track.addEventListener('click', (e) => {
+                if (audio.duration && !isNaN(audio.duration)) {
+                    const rect = track.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const pct = Math.max(0, Math.min(1, clickX / rect.width));
+                    audio.currentTime = pct * audio.duration;
+                    if (progressBar) progressBar.style.width = `${pct * 100}%`;
+                }
+            });
+        }
     });
 }
 
