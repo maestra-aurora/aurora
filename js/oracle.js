@@ -88,7 +88,7 @@ function initOracle() {
 
                                 <p class="card-meaning">${cardData.meaning}</p>
 
-                                <!-- Etiqueta/Botón de Ritual Recomendado de Alto Contraste -->
+                                <!-- Etiqueta de Ritual Recomendado de Alto Contraste -->
                                 <div class="card-ritual-cta">
                                     <span class="ritual-tag-label"><i class="fas fa-wand-magic-sparkles"></i> Ritual Recomendado:</span>
                                     <span class="ritual-tag-name">${cardData.recommendation}</span>
@@ -137,22 +137,30 @@ function initOracle() {
         if (flippedCount === 3) {
             setTimeout(() => {
                 if (resultBox) {
-                    const cardNames = drawnCards.map(c => c.name).join(' + ');
+                    const cardNames = drawnCards.map(c => c.name).join(' ✦ ');
                     if (oracleCardsDrawn) oracleCardsDrawn.textContent = cardNames;
 
                     if (oracleSummaryText) {
                         oracleSummaryText.innerHTML = `
-                            Has revelado la combinación sagrada de <strong>${drawnCards[0].name}</strong>, 
-                            <strong>${drawnCards[1].name}</strong> y <strong>${drawnCards[2].name}</strong>. 
-                            Las fuerzas espirituales muestran que hay una energía pendiente por destrabar. 
-                            El <em>${drawnCards[2].recommendation}</em> es la clave para manifestar tus deseos.
+                            Tus 3 cartas sagradas (<strong>${drawnCards[0].name}</strong>, 
+                            <strong>${drawnCards[1].name}</strong> y <strong>${drawnCards[2].name}</strong>) han sido reveladas. 
+                            Para recibir tu <strong>lectura completa, interpretación personalizada y el consejo sagrado</strong> para tu situación, 
+                            envía tu tirada ahora mismo a la Maestra Aurora por WhatsApp.
                         `;
                     }
 
                     // Asignar mensaje a WhatsApp
                     if (oracleCtaBtn) {
-                        const waMsg = SITE_CONFIG.whatsapp.oracleMessage(cardNames);
-                        oracleCtaBtn.href = buildWhatsAppUrl(waMsg);
+                        const cardNamesStr = drawnCards.map(c => c.name).join(' + ');
+                        const waMsg = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsapp && SITE_CONFIG.whatsapp.oracleMessage)
+                            ? SITE_CONFIG.whatsapp.oracleMessage(cardNamesStr)
+                            : `Hola Maestra Aurora, acabo de realizar la tirada de 3 cartas en su página: [${cardNamesStr}]. Deseo enviar mi tirada para que me dé la interpretación espiritual y revelación de mi caso.`;
+
+                        if (typeof getWhatsAppUrl === 'function') {
+                            oracleCtaBtn.href = getWhatsAppUrl(waMsg);
+                        } else if (typeof buildWhatsAppUrl === 'function') {
+                            oracleCtaBtn.href = buildWhatsAppUrl(waMsg);
+                        }
                     }
 
                     resultBox.classList.add('active');

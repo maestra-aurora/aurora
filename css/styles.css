@@ -832,7 +832,7 @@ a {
     font-weight: 400;
 }
 
-/* Contenedor / Botón de Ritual Recomendado de Alto Contraste */
+/* Contenedor / Etiqueta de Ritual Recomendado de Alto Contraste */
 .card-ritual-cta {
     width: 100%;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(14, 10, 26, 0.85) 100%);
