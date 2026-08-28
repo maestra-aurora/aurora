@@ -15,7 +15,7 @@ const SITE_CONFIG = {
         experienceYears: "+25 años",
         location: "Samayac & Santuarios Sagrados",
         rating: "4.99",
-        reviewsCount: "Experiencia Espiritual"
+        reviewsCount: "1,480+ consultantes atendidos"
     },
 
     // =========================================================================

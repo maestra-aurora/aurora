@@ -2,8 +2,8 @@
  * =========================================================================
  * ORÁCULO SAGRADO DE TAROT INTERACTIVO 3D
  * =========================================================================
- * Maneja la selección, barajado, volteo 3D de cartas y generación de
- * interpretación mística con enlace directo a WhatsApp.
+ * Maneja la selección, barajado, volteo 3D en cascada con auto-scroll
+ * y generación de interpretación mística con enlace directo a WhatsApp.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +22,8 @@ function initOracle() {
 
     let drawnCards = [];
     let flippedCount = 0;
+    let isRevealing = false;
+
     const positions = [
         { label: "1. Pasado & Raíz", desc: "El origen de tu bloqueo o situación actual" },
         { label: "2. Presente & Revelación", desc: "Lo que está oculto y actúa hoy sobre ti" },
@@ -31,7 +33,6 @@ function initOracle() {
     // Barajar cartas aleatoriamente
     function pickRandomCards() {
         const pool = [...SITE_CONFIG.oracleCards];
-        // Fisher-Yates shuffle
         for (let i = pool.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [pool[i], pool[j]] = [pool[j], pool[i]];
@@ -44,6 +45,7 @@ function initOracle() {
         cardsContainer.innerHTML = '';
         drawnCards = pickRandomCards();
         flippedCount = 0;
+        isRevealing = false;
         if (resultBox) resultBox.classList.remove('active');
 
         const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
@@ -59,7 +61,7 @@ function initOracle() {
                     <div class="oracle-card-inner">
                         <!-- Lado Trasero (Boca Abajo: Dorso Sagrado de Tarot) -->
                         <div class="oracle-card-face card-back">
-                            <span class="card-back-prompt"><i class="fas fa-hand-sparkles"></i> Toca para Revelar</span>
+                            <span class="card-back-prompt"><i class="fas fa-wand-magic-sparkles"></i> Toca para Revelar tu Tirada</span>
                         </div>
                         <!-- Lado Delantero (Revelado: Carta de Tarot Consagrada) -->
                         <div class="oracle-card-face card-front">
@@ -100,18 +102,40 @@ function initOracle() {
                 <div class="card-hint">${pos.desc}</div>
             `;
 
-            // Evento de clic para voltear la carta
+            // Evento de clic: activa la revelación en cascada con auto-scroll que acompaña cada carta
             const cardInner = cardEl.querySelector('.oracle-card');
             cardInner.addEventListener('click', () => {
                 if (!cardInner.classList.contains('flipped')) {
-                    cardInner.classList.add('flipped');
-                    triggerCardParticles(cardInner);
-                    flippedCount++;
-                    checkAllFlipped();
+                    revealAllCardsInCascade();
                 }
             });
 
             cardsContainer.appendChild(cardEl);
+        });
+    }
+
+    // Revelar las 3 cartas secuencialmente 1 por 1 con auto-scroll suave que acompaña cada carta
+    function revealAllCardsInCascade() {
+        if (isRevealing || flippedCount === 3) return;
+        isRevealing = true;
+
+        const allCardWrappers = cardsContainer.querySelectorAll('.oracle-card-wrapper');
+        allCardWrappers.forEach((wrapperEl, index) => {
+            const cardEl = wrapperEl.querySelector('.oracle-card');
+            // Cada carta espera 950ms para que el usuario aprecie el giro 3D completo
+            setTimeout(() => {
+                if (cardEl && !cardEl.classList.contains('flipped')) {
+                    // Auto-scroll suave guiando la vista hacia la carta que se está revelando
+                    wrapperEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    cardEl.classList.add('flipped');
+                    triggerCardParticles(cardEl);
+                    flippedCount++;
+                    if (flippedCount === 3) {
+                        checkAllFlipped();
+                        isRevealing = false;
+                    }
+                }
+            }, index * 950);
         });
     }
 
@@ -164,9 +188,10 @@ function initOracle() {
                     }
 
                     resultBox.classList.add('active');
-                    resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    // Scroll suave guiando la vista al resultado y botón de WhatsApp
+                    resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
-            }, 600);
+            }, 950);
         }
     }
 
