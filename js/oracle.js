@@ -2,8 +2,8 @@
  * =========================================================================
  * ORÁCULO SAGRADO DE TAROT INTERACTIVO 3D
  * =========================================================================
- * Maneja la selección, barajado, volteo 3D en cascada con auto-scroll
- * y generación de interpretación mística con enlace directo a WhatsApp.
+ * Maneja la selección, barajado, volteo 3D con cartas auténticas de Tarot
+ * y llamado de alta atracción para consultar por WhatsApp.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,9 +25,9 @@ function initOracle() {
     let isRevealing = false;
 
     const positions = [
-        { label: "1. Pasado & Raíz", desc: "El origen de tu bloqueo o situación actual" },
+        { label: "1. Pasado & Raíz", desc: "El origen de tu situación actual" },
         { label: "2. Presente & Revelación", desc: "Lo que está oculto y actúa hoy sobre ti" },
-        { label: "3. Futuro & Solución", desc: "El camino y ritual exacto para vencer" }
+        { label: "3. Futuro & Destino", desc: "El camino que los Arcanos te señalan" }
     ];
 
     // Barajar cartas aleatoriamente
@@ -48,11 +48,8 @@ function initOracle() {
         isRevealing = false;
         if (resultBox) resultBox.classList.remove('active');
 
-        const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
-
         positions.forEach((pos, idx) => {
             const cardData = drawnCards[idx];
-            const roman = romanNumerals[idx * 3 + Math.floor(Math.random() * 3)] || "VII";
             const cardEl = document.createElement('div');
             cardEl.className = 'oracle-card-wrapper';
             cardEl.innerHTML = `
@@ -63,38 +60,13 @@ function initOracle() {
                         <div class="oracle-card-face card-back">
                             <span class="card-back-prompt"><i class="fas fa-wand-magic-sparkles"></i> Toca para Revelar tu Tirada</span>
                         </div>
-                        <!-- Lado Delantero (Revelado: Carta de Tarot Consagrada) -->
-                        <div class="oracle-card-face card-front">
-                            <div class="tarot-inner-frame">
-                                <span class="tarot-corner corner-tl">❖</span>
-                                <span class="tarot-corner corner-tr">❖</span>
-                                <span class="tarot-corner corner-bl">❖</span>
-                                <span class="tarot-corner corner-br">❖</span>
-
-                                <div class="tarot-card-header">
-                                    <span class="tarot-num">${roman}</span>
-                                    <span class="card-badge">${cardData.category}</span>
-                                    <span class="tarot-num">${roman}</span>
-                                </div>
-
-                                <h4 class="card-title">${cardData.name}</h4>
-
-                                <!-- Ilustración / Grabado Central con Medallón Dorado y Geometría Sagrada -->
-                                <div class="tarot-illustration-box">
-                                    <div class="tarot-sacred-halo"></div>
-                                    <div class="tarot-art-medallion">
-                                        <i class="${cardData.icon}"></i>
-                                    </div>
-                                    <div class="tarot-astral-stars">✦ ✧ ✦</div>
-                                </div>
-
-                                <p class="card-meaning">${cardData.meaning}</p>
-
-                                <!-- Etiqueta de Ritual Recomendado de Alto Contraste -->
-                                <div class="card-ritual-cta">
-                                    <span class="ritual-tag-label"><i class="fas fa-wand-magic-sparkles"></i> Ritual Recomendado:</span>
-                                    <span class="ritual-tag-name">${cardData.recommendation}</span>
-                                </div>
+                        <!-- Lado Delantero (Revelado: Ilustración Auténtica de Carta de Tarot) -->
+                        <div class="oracle-card-face card-front tarot-art-face">
+                            <div class="tarot-art-container">
+                                <img src="${cardData.image}" alt="${cardData.name} - ${cardData.frenchName}" class="tarot-art-image" loading="lazy">
+                            </div>
+                            <div class="tarot-card-name-pill">
+                                <span>${cardData.name}</span>
                             </div>
                         </div>
                     </div>
@@ -142,11 +114,11 @@ function initOracle() {
     // Pequeño efecto de partículas místicas al voltear
     function triggerCardParticles(element) {
         const rect = element.getBoundingClientRect();
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 14; i++) {
             const spark = document.createElement('div');
             spark.className = 'oracle-spark';
-            const x = (Math.random() - 0.5) * 120;
-            const y = (Math.random() - 0.5) * 120;
+            const x = (Math.random() - 0.5) * 130;
+            const y = (Math.random() - 0.5) * 130;
             spark.style.setProperty('--tx', `${x}px`);
             spark.style.setProperty('--ty', `${y}px`);
             spark.style.left = `${rect.width / 2}px`;
@@ -166,19 +138,16 @@ function initOracle() {
 
                     if (oracleSummaryText) {
                         oracleSummaryText.innerHTML = `
-                            Tus 3 cartas sagradas (<strong>${drawnCards[0].name}</strong>, 
-                            <strong>${drawnCards[1].name}</strong> y <strong>${drawnCards[2].name}</strong>) han sido reveladas. 
-                            Para recibir tu <strong>lectura completa, interpretación personalizada y el consejo sagrado</strong> para tu situación, 
-                            envía tu tirada ahora mismo a la Maestra Aurora por WhatsApp.
+                            Escríbele a la Maestra Aurora ahora mismo para recibir lectura de Tarot personalizada.</strong>
                         `;
                     }
 
                     // Asignar mensaje a WhatsApp
                     if (oracleCtaBtn) {
-                        const cardNamesStr = drawnCards.map(c => c.name).join(' + ');
-                        const waMsg = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsapp && SITE_CONFIG.whatsapp.oracleMessage)
+                        const cardNamesStr = drawnCards.map(c => c.name).join(', ');
+                        const waMsg = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsapp && typeof SITE_CONFIG.whatsapp.oracleMessage === 'function')
                             ? SITE_CONFIG.whatsapp.oracleMessage(cardNamesStr)
-                            : `Hola Maestra Aurora, acabo de realizar la tirada de 3 cartas en su página: [${cardNamesStr}]. Deseo enviar mi tirada para que me dé la interpretación espiritual y revelación de mi caso.`;
+                            : `Hola Maestra Aurora, acabo de realizar mi tirada de Tarot con las cartas [${cardNamesStr}] y deseo mi lectura completa.`;
 
                         if (typeof getWhatsAppUrl === 'function') {
                             oracleCtaBtn.href = getWhatsAppUrl(waMsg);

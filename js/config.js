@@ -12,7 +12,7 @@ const SITE_CONFIG = {
         name: "Maestra Aurora",
         title: "Guía Espiritual & Custodia de la Alta Magia",
         subtitle: "Secretos de Samayac & Tradición Ancestral",
-        experienceYears: "+25 años",
+        experienceYears: "+25 años de experiencia",
         location: "Samayac & Santuarios Sagrados",
         rating: "4.99",
         reviewsCount: "1,480+ consultantes atendidos"
@@ -26,7 +26,7 @@ const SITE_CONFIG = {
         phone: "50200000000",
         defaultMessage: "Hola Maestra Aurora, deseo una consulta espiritual inmediata y totalmente confidencial.",
         urgencyMessage: "Hola Maestra Aurora, veo que quedan pocos cupos para hoy. Deseo apartar mi consulta de inmediato.",
-        oracleMessage: (cardNames) => `Hola Maestra Aurora, acabo de realizar la tirada de 3 cartas en su página y me salieron: [${cardNames}]. Deseo enviar mi tirada para que me dé la interpretación espiritual y saber qué me depara el destino.`,
+        oracleMessage: (cardNames) => `Hola Maestra quiero consultar`,
         diagnosisMessage: () => "Hola Maestra quiero consultar",
         serviceMessage: (serviceName) => `Hola Maestra Aurora, solicito información y consulta urgente sobre el ritual: "${serviceName}".`,
         testimonialMessage: "Hola Maestra Aurora, vi los testimonios en su página y deseo una ayuda y resultado similar para mi caso."
@@ -44,61 +44,71 @@ const SITE_CONFIG = {
         { name: "Elena B.", city: "Las Vegas, NV", service: "Apertura de Azar y Suerte", time: "hace 33 minutos" }
     ],
 
-    // Cartas para el Oráculo Interactivo de Tarot
+    // Cartas Clásicas de Tarot (Arcanos Mayores Tradición Marsella)
     oracleCards: [
         {
             id: "sol",
-            name: "El Sol Radiante",
-            category: "Fortuna y Éxito",
-            icon: "fas fa-sun",
-            meaning: "La luz divina bendice tus proyectos. Los bloqueos del pasado comienzan a disolverse, abriendo una puerta dorada para el dinero y la felicidad.",
-            recommendation: "Ritual de Apertura de Caminos y Abundancia.",
-            advice: "Es momento de decretar prosperidad."
+            name: "El Sol",
+            arcana: "XVIIII",
+            frenchName: "Le Soleil",
+            category: "Fortuna & Éxito",
+            image: "img/tarot/tarot-sol.jpg"
         },
         {
             id: "amantes",
-            name: "Los Amantes Sagrados",
-            category: "Amor y Pasión",
-            icon: "fas fa-heart",
-            meaning: "Fuerte conexión de almas y destino en común. Aunque hoy existan distanciamientos o terceras personas, el hilo rojo sigue vibrando intensamente.",
-            recommendation: "Amarre de Unión de Parejas y Endulzamiento.",
-            advice: "No dejes enfriar el vínculo; el amor puede renacer hoy."
-        },
-        {
-            id: "luna",
-            name: "La Luna Mística",
-            category: "Secretos y Videncia",
-            icon: "fas fa-moon",
-            meaning: "Hay energías ocultas, dudas y malas intenciones alrededor de ti. Alguien oculta sus verdaderos sentimientos o busca entrometerse.",
-            recommendation: "Lectura Profunda de Videncia y Revelación.",
-            advice: "Confía en tu intuición y protege tus planes."
-        },
-        {
-            id: "escudo",
-            name: "El Escudo Arcangélico",
-            category: "Protección Espiritual",
-            icon: "fas fa-shield-halved",
-            meaning: "Se detectan cargas pesadas, envidias y ojos oscuros que drenan tu vitalidad. Necesitas sellar tu aura contra daños espirituales.",
-            recommendation: "Ritual de Purificación y Blindaje Energético.",
-            advice: "Corta hoy mismo con las ataduras negativas."
+            name: "Los Enamorados",
+            arcana: "VI",
+            frenchName: "L'Amoureux",
+            category: "Amor & Pasión",
+            image: "img/tarot/tarot-amantes.jpg"
         },
         {
             id: "rueda",
             name: "La Rueda de la Fortuna",
-            category: "Destino y Giros",
-            icon: "fas fa-dharmachakra",
-            meaning: "Un cambio radical se avecina en tu vida amorosa y financiera. Lo que parecía perdido volverá multiplicado si tomas acción ahora.",
-            recommendation: "Ritual de Fortuna, Azar y Victoria.",
-            advice: "El universo está alineado a tu favor."
+            arcana: "X",
+            frenchName: "La Roue de Fortune",
+            category: "Destino & Giros",
+            image: "img/tarot/tarot-rueda.jpg"
         },
         {
-            id: "fuego",
-            name: "La Llama Eterna",
-            category: "Deseo y Dominio",
-            icon: "fas fa-fire-flame-curved",
-            meaning: "El deseo y los recuerdos arden en el pensamiento de esa persona especial. Su orgullo cederá ante la fuerza del sentimiento.",
-            recommendation: "Ritual de Retorno y Doblegamiento de Orgullo.",
-            advice: "La distancia se acorta cuando la energía se activa."
+            id: "mago",
+            name: "El Mago",
+            arcana: "I",
+            frenchName: "Le Bateleur",
+            category: "Poder & Inicios",
+            image: "img/tarot/tarot-mago.jpg"
+        },
+        {
+            id: "estrella",
+            name: "La Estrella",
+            arcana: "XVII",
+            frenchName: "L'Étoile",
+            category: "Esperanza & Guía",
+            image: "img/tarot/tarot-estrella.jpg"
+        },
+        {
+            id: "luna",
+            name: "La Luna",
+            arcana: "XVIII",
+            frenchName: "La Lune",
+            category: "Secretos & Videncia",
+            image: "img/tarot/tarot-luna.jpg"
+        },
+        {
+            id: "mundo",
+            name: "El Mundo",
+            arcana: "XXI",
+            frenchName: "Le Monde",
+            category: "Triunfo Absoluto",
+            image: "img/tarot/tarot-mundo.jpg"
+        },
+        {
+            id: "carro",
+            name: "El Carro",
+            arcana: "VII",
+            frenchName: "Le Chariot",
+            category: "Victoria & Avance",
+            image: "img/tarot/tarot-carro.jpg"
         }
     ],
 
