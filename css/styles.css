@@ -432,7 +432,7 @@ a {
    HERO SECTION
    ========================================================================= */
 .hero-section {
-    padding: 70px 0 90px;
+    padding: 24px 0 60px;
     position: relative;
     overflow: hidden;
 }
@@ -440,8 +440,86 @@ a {
 .hero-grid {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
+}
+
+/* Ticker Animado de Cobertura en Estados Unidos */
+.usa-hero-ticker-wrap {
+    width: 100%;
+    max-width: 100%;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.1) 0%, rgba(20, 14, 38, 0.85) 50%, rgba(212, 175, 55, 0.1) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: var(--radius-full);
+    padding: 8px 0;
+    overflow: hidden;
+    position: relative;
+    margin: 32px auto 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(212, 175, 55, 0.15);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.usa-ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: max-content;
+    white-space: nowrap;
+    animation: usaTickerMarquee 26s linear infinite;
+}
+
+.usa-hero-ticker-wrap:hover .usa-ticker-track {
+    animation-play-state: paused;
+}
+
+@keyframes usaTickerMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.usa-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.usa-ticker-item strong {
+    color: #f7d560;
+    font-weight: 700;
+}
+
+.usa-flag-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(243, 198, 76, 0.45);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #ffd700;
+    letter-spacing: 0.5px;
+}
+
+.usa-flag-badge i {
+    color: #3b82f6;
+}
+
+.usa-ticker-dot {
+    color: var(--gold-400);
+    font-size: 0.72rem;
+    opacity: 0.85;
+    text-shadow: 0 0 8px rgba(243, 198, 76, 0.8);
 }
 
 .hero-kicker {
@@ -450,12 +528,12 @@ a {
     gap: 8px;
     background: rgba(168, 85, 247, 0.15);
     border: 1px solid var(--border-purple);
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: var(--radius-full);
     color: var(--gold-300);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .hero-title {
