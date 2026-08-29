@@ -27,7 +27,7 @@ const SITE_CONFIG = {
         defaultMessage: "Hola Maestra Aurora, deseo una consulta espiritual inmediata y totalmente confidencial.",
         urgencyMessage: "Hola Maestra Aurora, veo que quedan pocos cupos para hoy. Deseo apartar mi consulta de inmediato.",
         oracleMessage: (cardNames) => `Hola Maestra Aurora, acabo de realizar la tirada de 3 cartas en su página y me salieron: [${cardNames}]. Deseo enviar mi tirada para que me dé la interpretación espiritual y saber qué me depara el destino.`,
-        diagnosisMessage: (score, need) => `Hola Maestra Aurora, realicé el diagnóstico energético y obtuve un nivel de bloqueo del ${score}%. Necesito ayuda urgente con: "${need}".`,
+        diagnosisMessage: () => "Hola Maestra quiero consultar",
         serviceMessage: (serviceName) => `Hola Maestra Aurora, solicito información y consulta urgente sobre el ritual: "${serviceName}".`,
         testimonialMessage: "Hola Maestra Aurora, vi los testimonios en su página y deseo una ayuda y resultado similar para mi caso."
     },

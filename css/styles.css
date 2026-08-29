@@ -1032,20 +1032,56 @@ a {
     animation: fadeInSlide 0.4s ease forwards;
 }
 
-.diag-meter-box {
-    display: inline-flex;
-    flex-direction: column;
+/* Emblema Místico de Alerta Espiritual */
+.diag-alert-emblem {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 20px auto;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 175px;
-    height: 175px;
+}
+
+.diag-emblem-halo {
+    position: absolute;
+    inset: -8px;
     border-radius: 50%;
-    border: 3px solid rgba(244, 63, 94, 0.6);
-    box-shadow: 0 0 35px rgba(244, 63, 94, 0.4), inset 0 0 25px rgba(244, 63, 94, 0.15);
-    margin-bottom: 24px;
-    background: radial-gradient(circle, rgba(244, 63, 94, 0.18) 0%, rgba(14, 12, 31, 0.95) 75%);
-    padding: 16px;
-    box-sizing: border-box;
+    background: radial-gradient(circle, rgba(244, 63, 94, 0.45) 0%, rgba(212, 175, 55, 0.2) 60%, transparent 75%);
+    filter: blur(10px);
+    animation: emblemHaloPulse 2.5s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.diag-emblem-inner {
+    position: relative;
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #220919 0%, #0d0716 100%);
+    border: 1.5px solid #ff4b68;
+    box-shadow: 0 0 25px rgba(244, 63, 94, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.diag-alert-svg {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.8));
+    animation: alertPulseIcon 2s infinite ease-in-out;
+}
+
+@keyframes emblemHaloPulse {
+    0%, 100% { transform: scale(1); opacity: 0.65; }
+    50% { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes alertPulseIcon {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.8)); }
+    50% { transform: scale(1.06); filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.9)); }
 }
 
 .diag-meter-icon {

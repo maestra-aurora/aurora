@@ -223,26 +223,27 @@ function initEnergyDiagnosis() {
     });
 
     function showDiagnosisResult() {
-        const score = Math.floor(Math.random() * 20) + 78; // 78% a 98%
-        const scoreValEl = document.getElementById('diag-score-val') || document.getElementById('diag-score-text');
-        if (scoreValEl) scoreValEl.textContent = `${score}%`;
-        
-        let needSummary = `${selectedArea} con síntoma de ${selectedSymptom} (${selectedDuration})`;
         if (diagAdviceText) {
             diagAdviceText.innerHTML = `
-                Tu campo áurico presenta un <strong>nivel crítico de interferencia (${score}%)</strong>. 
-                Los patrones de <em>${selectedArea}</em> indican que existe un bloqueo energético que 
-                no cederá por sí solo sin un trabajo de corte y transmutación sagrada.
+                Es urgente que consultes ahora mismo con la Maestra Aurora para recibir ayuda y frenar este problema.
             `;
         }
 
         if (waDiagBtn) {
-            const waMsg = SITE_CONFIG.whatsapp.diagnosisMessage(score, needSummary);
-            waDiagBtn.href = buildWhatsAppUrl(waMsg);
+            const waMsg = (typeof SITE_CONFIG !== 'undefined' && SITE_CONFIG.whatsapp && typeof SITE_CONFIG.whatsapp.diagnosisMessage === 'function')
+                ? SITE_CONFIG.whatsapp.diagnosisMessage()
+                : "Hola Maestra quiero consultar";
+
+            if (typeof getWhatsAppUrl === 'function') {
+                waDiagBtn.href = getWhatsAppUrl(waMsg);
+            } else if (typeof buildWhatsAppUrl === 'function') {
+                waDiagBtn.href = buildWhatsAppUrl(waMsg);
+            }
         }
 
         if (resultDiv) {
             resultDiv.classList.add('active');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 

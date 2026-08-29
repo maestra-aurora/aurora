@@ -29,9 +29,7 @@
         rel="stylesheet">
 
     <!-- FontAwesome 6 Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qS/l+A68vL78lM1O5o4Q4I7c3U4D5yQ5V4A1b/c4u5T0z0I2z6T5a8I0w6r4jQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Estilos Principales -->
     <link rel="stylesheet" href="css/styles.css">
@@ -152,8 +150,8 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                             </div>
-                            <span style="font-size: 0.88rem; font-weight: 700; color: #fff;">Experiencia
-                                Espiritual</span>
+                            <span style="font-size: 0.88rem; font-weight: 700; color: #fff;">1,480+ Casos
+                                Resueltos</span>
                         </div>
                     </div>
                 </div>
@@ -291,21 +289,44 @@
                         </div>
                     </div>
 
-                    <!-- Resultado Diagnóstico -->
+                    <!-- Resultado de la Evaluación -->
                     <div class="diag-result" id="diag-result">
-                        <div class="diag-meter-box">
-                            <i class="fas fa-triangle-exclamation diag-meter-icon"></i>
-                            <span class="diag-score-val" id="diag-score-val">88%</span>
-                            <span class="diag-meter-label">Bloqueo Áurico</span>
+                        <div class="diag-alert-emblem">
+                            <div class="diag-emblem-halo"></div>
+                            <div class="diag-emblem-inner">
+                                <svg class="diag-alert-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <linearGradient id="alertGoldCrimson" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#ffd700" />
+                                            <stop offset="60%" stop-color="#ff4b68" />
+                                            <stop offset="100%" stop-color="#d91b42" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Círculo sagrado exterior punteado -->
+                                    <circle cx="32" cy="32" r="27" stroke="url(#alertGoldCrimson)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.85"/>
+                                    <circle cx="32" cy="32" r="23" stroke="#ff4b68" stroke-width="1" opacity="0.4"/>
+                                    <!-- Triángulo místico de advertencia -->
+                                    <path d="M32 11 L51 45 C52 47 51 49 48 49 L16 49 C13 49 12 47 13 45 Z" fill="rgba(244, 63, 94, 0.22)" stroke="url(#alertGoldCrimson)" stroke-width="2" stroke-linejoin="round"/>
+                                    <!-- Signo de exclamación sagrado -->
+                                    <path d="M32 21 L32 35" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                                    <circle cx="32" cy="42" r="2.2" fill="#ffffff"/>
+                                    <!-- Destellos astrales -->
+                                    <circle cx="15" cy="17" r="1.2" fill="#ffd700"/>
+                                    <circle cx="49" cy="17" r="1.2" fill="#ffd700"/>
+                                    <circle cx="32" cy="5" r="1.2" fill="#ffd700"/>
+                                </svg>
+                            </div>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #fff;">Diagnóstico Espiritual: <span
-                                class="text-gold">Bloqueo Activo Detectado</span></h3>
-                        <p id="diag-advice-text" style="max-width: 660px; margin: 0 auto 26px; line-height: 1.7;"></p>
+                        <span class="section-kicker" style="color: #ff6b81; margin-bottom: 8px;">Alerta Espiritual</span>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 14px; color: #fff;">
+                            Se ha Detectado un <span style="color: #ff6b81;">Problema Grave</span> en tu Camino
+                        </h3>
+                        <p id="diag-advice-text" style="max-width: 660px; margin: 0 auto 26px; line-height: 1.7; font-size: 1.05rem; color: #e2d9f3;"></p>
 
                         <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
                             <a href="#" id="diag-cta-whatsapp" target="_blank" rel="noopener noreferrer"
                                 class="btn-whatsapp-cta whatsapp-pulse">
-                                <i class="fab fa-whatsapp"></i> <span>Consultar mi Diagnóstico</span>
+                                <i class="fab fa-whatsapp"></i> <span>Consultar con la Maestra</span>
                             </a>
                             <button type="button" id="diag-reset-btn" class="btn-shuffle">
                                 <i class="fas fa-arrow-rotate-left"></i> Repetir Test
@@ -453,9 +474,9 @@
                 </h3>
 
                 <div class="audio-notes-container">
-                    <div class="audio-note-card" data-audio="img/audios/testimonio-audio.mp3">
-                        <button type="button" class="audio-play-btn"
-                            aria-label="Reproducir testimonio de voz de Patricia">
+                    <div class="audio-note-card"
+                        data-audio="img/audios/testimonio-audio.mp3">
+                        <button type="button" class="audio-play-btn" aria-label="Reproducir testimonio de voz de Patricia">
                             <i class="fas fa-play"></i>
                         </button>
                         <div class="audio-info">
@@ -470,9 +491,9 @@
                         </div>
                     </div>
 
-                    <div class="audio-note-card" data-audio="img/audios/testimonio-audio-2.mp3">
-                        <button type="button" class="audio-play-btn"
-                            aria-label="Reproducir testimonio de voz de Gonzalo">
+                    <div class="audio-note-card"
+                        data-audio="img/audios/testimonio-audio-2.mp3">
+                        <button type="button" class="audio-play-btn" aria-label="Reproducir testimonio de voz de Gonzalo">
                             <i class="fas fa-play"></i>
                         </button>
                         <div class="audio-info">
@@ -488,8 +509,7 @@
                     </div>
                 </div>
                 <div style="text-align: center; margin-top: 36px;">
-                    <a href="#contacto" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse"
-                        data-wa-msg="Hola Maestra Aurora, vi los testimonios de casos resueltos y deseo apartar mi consulta para mi situación.">
+                    <a href="#contacto" class="btn-whatsapp-cta whatsapp-link whatsapp-pulse" data-wa-msg="Hola Maestra Aurora, vi los testimonios de casos resueltos y deseo apartar mi consulta para mi situación.">
                         <i class="fab fa-whatsapp"></i> <span>Consultar mi Caso Ahora</span>
                     </a>
                 </div>
@@ -512,10 +532,8 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 36px;">
-                    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">¿Tienes una duda o
-                        situación específica que no aparece aquí?</p>
-                    <a href="#contacto" class="btn-gold whatsapp-link"
-                        data-wa-msg="Hola Maestra Aurora, tengo una pregunta especial sobre mi caso espiritual.">
+                    <p style="color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem;">¿Tienes una duda o situación específica que no aparece aquí?</p>
+                    <a href="#contacto" class="btn-gold whatsapp-link" data-wa-msg="Hola Maestra Aurora, tengo una pregunta especial sobre mi caso espiritual.">
                         <i class="fab fa-whatsapp"></i> <span>Preguntar a la Maestra</span>
                     </a>
                 </div>
