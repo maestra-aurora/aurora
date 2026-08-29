@@ -138,7 +138,7 @@ function initOracle() {
 
                     if (oracleSummaryText) {
                         oracleSummaryText.innerHTML = `
-                            Escríbele a la Maestra Aurora ahora mismo para recibir lectura de Tarot personalizada.</strong>
+                            Escríbele a la Maestra Aurora ahora mismo para recibir lectura de Tarot personalizada.
                         `;
                     }
 
