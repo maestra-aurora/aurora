@@ -23,7 +23,7 @@ const SITE_CONFIG = {
     // =========================================================================
     whatsapp: {
         // Formato internacional (con o sin signo +, ej: "5020000000" o "+1 (555) 123-4567")
-        phone: "50200000000",
+        phone: "+1 6073228024",
         defaultMessage: "Hola Maestra Aurora, deseo una consulta espiritual inmediata y totalmente confidencial.",
         urgencyMessage: "Hola Maestra Aurora, veo que quedan pocos cupos para hoy. Deseo apartar mi consulta de inmediato.",
         oracleMessage: (cardNames) => `Hola Maestra quiero consultar`,
@@ -253,7 +253,7 @@ const SITE_CONFIG = {
 function getWhatsAppUrl(customMessage) {
     const rawPhone = (window.SITE_CONFIG && window.SITE_CONFIG.whatsapp && window.SITE_CONFIG.whatsapp.phone)
         ? window.SITE_CONFIG.whatsapp.phone
-        : (SITE_CONFIG.whatsapp.phone || '50200000000');
+        : (SITE_CONFIG.whatsapp.phone || '+1 6073228024');
     const cleanPhone = String(rawPhone).replace(/[^0-9]/g, '');
     const msg = customMessage || (SITE_CONFIG.whatsapp && SITE_CONFIG.whatsapp.defaultMessage) || 'Hola Maestra Aurora, deseo una consulta espiritual.';
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
