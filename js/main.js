@@ -610,9 +610,6 @@ function initMobileNav() {
 function initUrgencyCounters() {
     const cuposEl = document.getElementById('cupos-count');
     if (cuposEl) {
-        // Simular variación realista de 2 a 4 cupos disponibles
-        const hours = new Date().getHours();
-        const available = hours > 18 ? 2 : (hours > 12 ? 3 : 4);
-        cuposEl.textContent = `${available} cupos`;
+        cuposEl.textContent = "Consultas abiertas";
     }
 }
