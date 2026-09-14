@@ -115,9 +115,9 @@ const SITE_CONFIG = {
     // Servicios y Rituales
     services: [
         {
-            id: "amarres",
+            id: "union-pareja",
             category: "amor",
-            title: "Amarres y Unión de Pareja",
+            title: "Orientación y Unión de Pareja",
             subtitle: "Armonía y Vínculo Afectivo",
             desc: "Orientación espiritual para ayudar a superar el distanciamiento, enfriamiento y dudas en tu relación, fomentando el entendimiento mutuo.",
             img: "img/union-pareja.jpg",
@@ -125,10 +125,10 @@ const SITE_CONFIG = {
             features: ["Superación del orgullo", "Acompañamiento a distancia", "100% Sin daño ni malas intenciones"]
         },
         {
-            id: "retorno",
+            id: "reconciliacion",
             category: "amor",
-            title: "Retorno del Ser Amado",
-            subtitle: "Búsqueda de Reconciliación",
+            title: "Reconciliación y Reencuentro",
+            subtitle: "Búsqueda de Armonía",
             desc: "Trabajos de energía espiritual para buscar el reencuentro, sanar heridas del pasado y propiciar el diálogo sincero con quien amas.",
             img: "img/retorno.jpg",
             tag: "Orientación",
