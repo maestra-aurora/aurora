@@ -13,7 +13,7 @@ const SITE_CONFIG = {
         title: "Guía Espiritual & Consejería",
         subtitle: "Tradición Espiritual Ancestral",
         experienceYears: "+25 años de experiencia",
-        location: "Salem, Massachusetts & Atención a Distancia",
+        location: "México & Atención a Distancia",
         rating: "4.99",
         reviewsCount: "Experiencia Espiritual"
     },
@@ -32,16 +32,16 @@ const SITE_CONFIG = {
         testimonialMessage: "Hola Maestra Aurora, vi los testimonios en su página y deseo orientación para mi caso."
     },
 
-    // Notificaciones de Prueba Social en Vivo (Social Proof en USA)
+    // Notificaciones de Prueba Social en Vivo (Social Proof en México)
     liveActivity: [
-        { name: "Carlos M.", city: "Los Angeles, CA", service: "Orientación de Pareja", time: "hace 3 minutos" },
-        { name: "Valeria S.", city: "Miami, FL", service: "Apertura de Caminos & Prosperidad", time: "hace 7 minutos" },
-        { name: "Andrés G.", city: "Houston, TX", service: "Limpieza Energética & Destrabe", time: "hace 11 minutos" },
-        { name: "Lucía P.", city: "New York, NY", service: "Acompañamiento en el Amor", time: "hace 15 minutos" },
-        { name: "Fernando T.", city: "Dallas, TX", service: "Prosperidad y Negocios", time: "hace 19 minutos" },
-        { name: "Mariana R.", city: "Chicago, IL", service: "Protección Espiritual", time: "hace 24 minutos" },
-        { name: "Roberto V.", city: "Phoenix, AZ", service: "Endulzamiento y Armonía", time: "hace 29 minutos" },
-        { name: "Elena B.", city: "Las Vegas, NV", service: "Apertura de Caminos y Bienestar", time: "hace 33 minutos" }
+        { name: "Carlos M.", city: "Ciudad de México, CDMX", service: "Orientación de Pareja", time: "hace 3 minutos" },
+        { name: "Valeria S.", city: "Guadalajara, Jalisco", service: "Apertura de Caminos & Prosperidad", time: "hace 7 minutos" },
+        { name: "Andrés G.", city: "Monterrey, Nuevo León", service: "Limpieza Energética & Destrabe", time: "hace 11 minutos" },
+        { name: "Lucía P.", city: "Puebla, Puebla", service: "Acompañamiento en el Amor", time: "hace 15 minutos" },
+        { name: "Fernando T.", city: "Querétaro, Querétaro", service: "Prosperidad y Negocios", time: "hace 19 minutos" },
+        { name: "Mariana R.", city: "Mérida, Yucatán", service: "Protección Espiritual", time: "hace 24 minutos" },
+        { name: "Roberto V.", city: "Tijuana, Baja California", service: "Endulzamiento y Armonía", time: "hace 29 minutos" },
+        { name: "Elena B.", city: "Cancún, Quintana Roo", service: "Apertura de Caminos y Bienestar", time: "hace 33 minutos" }
     ],
 
     // Cartas Clásicas de Tarot (Arcanos Mayores Tradición Marsella)
